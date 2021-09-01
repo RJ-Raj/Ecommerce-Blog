@@ -1,0 +1,57 @@
+{% extends 'shop/basic.html' %}
+{% block heading %} Contact Us {% endblock %}
+{% block body %}
+<div class="container my-4">
+<h4>Contact Us </h4>
+
+    <form action="/shop/contact/" method="post" class="row g-3"> {% csrf_token %}
+        <div class="col-md-6">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Name">
+        </div>
+        <div class="col-md-6">
+          <label for="name" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Enter your Email">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Address</label>
+          <input type="text" class="form-control" id="address" placeholder="First Line">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress2" class="form-label">Address 2</label>
+          <input type="text" class="form-control" id="address2" placeholder="Second line">
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">City</label>
+          <input type="text" class="form-control" id="city" name="city">
+        </div>
+        <div class="col-md-2">
+          <label for="inputZip" class="form-label">Zip</label>
+          <input type="text" class="form-control" id="zip">
+        </div>
+        <div class="col-12">
+            <label for="inputAddress" class="form-label">Query</label>
+            <input type="text" class="form-control" id="query" name="query" placeholder="Enter Your Query Here">
+          </div>
+        
+        <div class="col-12 my-3">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+
+
+
+
+</div>
+{% endblock %}
+{%block js%}
+<script>
+
+{% if thank %}
+alert('Thanks for contacting us! We will get you soon');
+
+
+document.location = "/shop/contact";
+{% endif %}
+</script>
+{% endblock %}
